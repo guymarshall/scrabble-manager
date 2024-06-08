@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GamesController;
 use App\Http\Controllers\ProfilesController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,9 +14,7 @@ Route::get('/profile/{userId}', static function (int $userId) {
     return view('profile', ['userId' => $userId]); // TODO: check userId exists in controller
 })->whereNumber('userId')->name('profile');
 
-Route::get('/games', static function () {
-    return view('games');
-})->name('games');
+Route::get('/games', [GamesController::class, 'show'])->name('games');
 
 Route::get('/game/{gameId}', static function (int $gameId) {
     return view('game', ['gameId' => $gameId]); // TODO: check gameId exists in controller
