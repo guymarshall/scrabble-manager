@@ -1,0 +1,4 @@
+pages
+    profile
+    game
+    leaderboard - show top 10 average member scores
