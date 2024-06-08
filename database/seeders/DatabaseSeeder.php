@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Game;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -14,6 +15,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
          User::factory(100)->create();
+
+         Game::factory(100)->create();
 
 //        User::factory()->create([
 //            'name' => 'Test User',
