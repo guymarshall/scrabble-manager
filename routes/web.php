@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GamesController;
 use App\Http\Controllers\LeaderboardController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfilesController;
 use Illuminate\Support\Facades\Route;
 
@@ -11,9 +12,7 @@ Route::get('/', static function () {
 
 Route::get('/profiles', [ProfilesController::class, 'show'])->name('profiles');
 
-Route::get('/profile/{userId}', static function (int $userId) {
-    return view('profile', ['userId' => $userId]); // TODO: check userId exists in controller
-})->whereNumber('userId')->name('profile');
+Route::get('/profile/{userId}', [ProfileController::class, 'show'])->name('profile');
 
 Route::get('/games', [GamesController::class, 'show'])->name('games');
 
