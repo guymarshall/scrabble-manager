@@ -23,7 +23,7 @@ class ProfileController extends Controller
             ->where('users.id', '=', $userId)
             ->pluck('score');
 
-        $averageScore = $scores->sum() / $scores->count();
+        $averageScore = $scores->count() > 0 ? $scores->sum() / $scores->count() : 0;
 
         return view('profile', [
             'profile' => $user,
