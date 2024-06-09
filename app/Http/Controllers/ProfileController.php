@@ -16,7 +16,7 @@ class ProfileController extends Controller
         $user = User::query()
             ->select(['users.id AS id', 'users.name AS name', 'users.created_at AS date_joined'])
             ->where('users.id', '=', $userId)
-            ->first();
+            ->firstOrFail();
 
         $scores = Score::query()
             ->leftJoin('users', 'users.id', '=', 'scores.user_id')
